@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>焚き火ゲーム</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>🌲 木を集めて焚き火をしよう 🔥</h1>
+  <p>集めた木の本数: <span id="wood-count">0</span></p>
+  <button onclick="collectWood()">木を拾う</button>
+  <button id="light-fire-btn" onclick="lightFire()" style="display: none;">火をつける</button>
+
+  <!-- 🔥 焚き火の表示エリア -->
+  <div id="fireplace" style="display: none; margin-top: 20px;">
+    <img src="https://media.giphy.com/media/26gsvCk59AwGX28XS/giphy.gif" alt="焚き火" width="300">
+    <p>🔥 あったか〜い！</p>
+  </div>
+
+  <!-- 🔽 JavaScript -->
+  <script>
+    let wood = 0;
+
+    function collectWood() {
+      wood++;
+      document.getElementById('wood-count').textContent = wood;
+      if (wood >= 5) {
+        document.getElementById('light-fire-btn').style.display = 'inline-block';
+      }
+    }
+
+    function lightFire() {
+      document.getElementById('fireplace').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
